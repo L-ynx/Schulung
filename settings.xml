@@ -1,0 +1,72 @@
+<settings>
+  <servers>
+    <server>
+      <id>nexus</id>
+      <username>faktorzehn</username>
+      <password>{MX+z54QWRVYHnVKIehdB1zccsJUdkNu0aS5J1TiC0u1xAN076GZxuNEdzp8mk6A+}</password>
+    </server>
+    <server>
+      <id>thirdparty</id>
+      <username>deployment</username>
+      <password>{QhoUOmRlV1oHzRv/f+UfsgkG/jOuEtYCYydc1sgMY6Z5M3xaDiXGTf3+gonoYG+A}</password>
+    </server>
+    <server>
+      <id>releases</id>	
+      <username>deployment</username>
+      <password>{QhoUOmRlV1oHzRv/f+UfsgkG/jOuEtYCYydc1sgMY6Z5M3xaDiXGTf3+gonoYG+A}</password>
+    </server>
+    <server>
+      <id>snapshots</id>
+      <username>deployment</username>
+      <password>{QhoUOmRlV1oHzRv/f+UfsgkG/jOuEtYCYydc1sgMY6Z5M3xaDiXGTf3+gonoYG+A}</password>
+    </server>
+    <server>
+      <id>TomcatServer</id>
+      <username>admin</username>
+      <password>nl5Gcy61iMjVJ9eP</password>
+    </server>
+  </servers>
+  <mirrors>
+    <mirror>
+      <!--This sends everything else to /public -->
+      <id>nexus</id>
+      <mirrorOf>*</mirrorOf>
+      <url>https://nexus.faktorzehn.de/content/groups/private</url>
+    </mirror>
+  </mirrors>
+  <profiles>
+    <profile>
+      <id>nexus</id>
+      <!--Enable snapshots for the built in central repo to direct -->
+      <!--all requests to nexus via the mirror -->
+      <repositories>
+        <repository>
+          <id>central</id>
+          <url>http://central</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots>
+          	<enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+     <pluginRepositories>
+        <pluginRepository>
+          <id>central</id>
+          <url>http://central</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>true</enabled></snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <!--make the profile active all the time -->
+    <activeProfile>nexus</activeProfile>
+  </activeProfiles>
+
+  <pluginGroups>
+    <pluginGroup>org.jenkins-ci.tools</pluginGroup>
+    <pluginGroup>org.glassfish.maven.plugin</pluginGroup>
+  </pluginGroups>
+
+</settings>
