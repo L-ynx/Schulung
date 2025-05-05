@@ -1,3 +1,3 @@
 # Schulung
 
-## Vorzeigeprojekt für die Schulung
+## Vorzeigeprojekt die Schulung
